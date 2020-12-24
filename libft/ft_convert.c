@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_to_hexa.c                               :+:      :+:    :+:   */
+/*   ft_convert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:46:37 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/17 23:56:03 by ddecourt         ###   ########.fr       */
+/*   Updated: 2020/12/24 21:41:55 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	get_size(long int n)
+#include "libft.h"
+
+int				ft_strlen(char *s)
+{
+	int			size;
+
+	size = 0;
+	while (*s)
+	{
+		size++;
+		s++;
+	}
+	return (size);
+}
+
+static int		get_size(long int n, int len)
 {
 	int			size;
 
@@ -22,7 +37,7 @@ static int	get_size(long int n)
 	}
 	while (n > 0)
 	{
-		n = n / 16;
+		n = n / len;
 		size++;
 	}
 	if (size == 0)
@@ -30,16 +45,16 @@ static int	get_size(long int n)
 	return (size);
 }
 
-char		*ft_convert_to_hexa(int n)
+char			*ft_convert(int n, char *base)
 {
 	long int	nb;
 	int			size;
+	int			len;
 	char		*num;
-	char		*hexa;
 
-	hexa = "0123456789ABCDEF";
 	nb = (long int)n;
-	size = get_size(nb);
+	len = ft_strlen(base);
+	size = get_size(nb, len);
 	if (!(num = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	if (nb < 0)
@@ -47,8 +62,8 @@ char		*ft_convert_to_hexa(int n)
 	num[size] = '\0';
 	while (size > 0)
 	{
-		num[--size] = (hexa[nb % 16]);
-		nb = nb / 16;
+		num[--size] = (base[nb % len]);
+		nb = nb / len;
 	}
 	if (n < 0)
 		num[size] = '-';
