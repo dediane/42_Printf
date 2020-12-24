@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 12:24:57 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/24 00:13:06 by ddecourt         ###   ########.fr       */
+/*   Updated: 2020/12/24 01:01:13 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,25 @@ size_t ft_display_int(int value)
     return (1 + size);
 }
 
+size_t ft_display_string(const char *s)
+{
+    size_t size;
+
+    while(*s)
+    {
+	ft_putchar(*s);
+	s++;
+	size++;
+    }
+    return (1 + size);
+}
+
 void	ft_printf(const char *format, ...)
 {
     va_list args;
     int written;
     int value;
+    const char *string;
     char current;
 
     written = 0;
@@ -55,10 +69,16 @@ void	ft_printf(const char *format, ...)
 	}
 	else
 	{
-	    if (*format++ == 'd' || *format++ == 'i')
+	    current = *format++;
+	    if (current == 'd' || current == 'i')
 	    {
 		value = (int)va_arg(args, int);
 		written += ft_display_int(value);
+	    }
+	    if (current == 's')
+	    {
+		string = (const char *)va_arg(args, const char *);
+		written += ft_display_string(string);
 	    }
 	}
     }	
@@ -69,7 +89,9 @@ void	ft_printf(const char *format, ...)
 
 int main(int argc, char **argv)
 {
-    ft_printf("Begin %d End\n Hello", 123);
-
-    return EXIT_SUCCESS;
+    ft_printf("Hello mon nom est %s.", "Diane c'est moi");
+    ft_printf("Salut %d", 12896243);
+    ft_printf("Bonjour %i", 292942);
+    printf("Hello mon nom est %s", "Diane");
+    printf("Salut %d", 785453);
 }
