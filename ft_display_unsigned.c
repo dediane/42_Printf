@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_display_unsigned.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/24 21:31:32 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/24 21:37:20 by ddecourt         ###   ########.fr       */
+/*   Created: 2020/12/24 23:59:07 by ddecourt          #+#    #+#             */
+/*   Updated: 2020/12/24 23:59:40 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+size_t		ft_display_unsigned(int n)
+{
+	size_t size;
 
-char		*ft_convert(int n, char *base);
-void		ft_putchar(char c);
-size_t		ft_strlen(char *s);
+	if (n < 10)
+	{
+		ft_putchar(n + '0');
+		return (1);
+	}
+	size = ft_display_unsigned(n / 10);
+	ft_putchar(n % 10 + '0');
+	return (1 + size);
+}
 
-#endif

@@ -6,24 +6,11 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:46:37 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/24 21:41:55 by ddecourt         ###   ########.fr       */
+/*   Updated: 2020/12/24 23:05:43 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int				ft_strlen(char *s)
-{
-	int			size;
-
-	size = 0;
-	while (*s)
-	{
-		size++;
-		s++;
-	}
-	return (size);
-}
 
 static int		get_size(long int n, int len)
 {

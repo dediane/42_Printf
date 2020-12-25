@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 12:24:57 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/24 21:22:23 by ddecourt         ###   ########.fr       */
+/*   Updated: 2020/12/25 01:50:46 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,70 @@
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+}
+
+
+
+static int		get_size(long int n, int len)
+{
+	int			size;
+
+	size = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		size++;
+	}
+	while (n > 0)
+	{
+		n = n / len;
+		size++;
+	}
+	if (size == 0)
+		return (1);
+	return (size);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+void	ft_putstr(char *s)
+{
+	if (s)
+		write(1, s, ft_strlen(s));
+}
+
+size_t			ft_convert(int n, char *base)
+{
+	long int	nb;
+	int			size;
+	int			len;
+	char		*num;
+
+	nb = (long int)n;
+	len = ft_strlen(base);
+	size = get_size(nb, len);
+	if (!(num = malloc(sizeof(char) * (size + 1))))
+		return (0);
+	if (nb < 0)
+		nb *= -1;
+	num[size] = '\0';
+	while (size > 0)
+	{
+		num[--size] = (base[nb % len]);
+		nb = nb / len;
+	}
+	if (n < 0)
+		num[size] = '-';
+	ft_putstr(num);
+	return (1 + size);
 }
 
 size_t		ft_display_int(int n)
@@ -122,6 +186,16 @@ void	ft_printf(const char *format, ...)
 			}
 			if (current == '%')
 				written += ft_display_percent();
+			if (current == 'x' || current == 'X')
+			{
+				value =(int)va_arg(args, int);
+				written += ft_convert(value, "0123456789ABCDEF");
+			}
+			if (current == 'o')
+			{
+				value =(int)va_arg(args, int);
+				written += ft_convert(value, "01234567");
+			}
 		}
 	}	
 	va_end (args);
@@ -135,5 +209,5 @@ int main(int argc, char **argv)
 	ft_printf("Bonjour %i", 292942);
 	printf("Hello mon nom est %s", "Diane");
 	printf("Salut %d", 785453);*/
-	ft_printf("Mon prénom c'est: %s, j'ai %d ans et il fait %d je voudrais dire %s à tous le monde","Diane", 27, -234, "Bonjour");
+	ft_printf("Mon prénom c'est: %s, j'ai %d ans et il fait %d je voudrais dire %s à tous le monde. --- Voici le chiffre 42 en octal: %o, et en hexa: %x autre Hexa: %X","Diane", 27, -234, "Bonjour", 42, 42, 42);
 }
