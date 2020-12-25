@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:31:32 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/24 23:02:55 by ddecourt         ###   ########.fr       */
+/*   Updated: 2020/12/25 16:42:30 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 void		ft_putchar(char c);
 size_t		ft_strlen(char *s);
+void		ft_putstr(char *s);
 char		*ft_convert(int n, char *base);
 
 #endif

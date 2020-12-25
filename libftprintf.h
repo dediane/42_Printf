@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/24 23:53:36 by ddecourt         ###   ########.fr       */
+/*   Updated: 2020/12/25 14:27:54 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include "libft.h"
 
 size_t		ft_display_string(const char *s);
 size_t		ft_display_char(char c);

@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:47:14 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/24 18:28:00 by ddecourt         ###   ########.fr       */
+/*   Updated: 2020/12/25 15:55:24 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void			ft_parsing(char current, int *written, va_list args)
 		s = (const char *)va_arg(args, const char *);
 		*written += ft_display_string(s);
 	}
-	if (current == '%')
-		*written += ft_display_percent();
 	else
 	{
 		value = (int)va_arg(args, int);

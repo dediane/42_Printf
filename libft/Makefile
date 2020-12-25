@@ -6,12 +6,13 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 22:54:52 by ddecourt          #+#    #+#              #
-#    Updated: 2020/12/24 23:04:45 by ddecourt         ###   ########.fr        #
+#    Updated: 2020/12/25 16:41:13 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= ft_putchar.c \
 	  ft_strlen.c \
+	  ft_putstr.c \
 	  ft_convert.c \
 
 OBJS	= ${SRCS:.c=.o}
