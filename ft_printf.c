@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/25 17:01:00 by ddecourt         ###   ########.fr       */
+/*   Updated: 2020/12/25 17:12:46 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ void			ft_parsing(char current, int *written, va_list args)
 	}
 }
 
-void	ft_printf(const char *format, ...)
+void			ft_printf(const char *format, ...)
 {
-	va_list args;
-	int written;
-	char current;
+	va_list		args;
+	int			written;
+	char		current;
 
 	written = 0;
 	va_start(args, format);
-	while(*format != '\0')
+	while (*format != '\0')
 	{
 		current = *format;
 		format++;
@@ -62,7 +62,7 @@ void	ft_printf(const char *format, ...)
 			current = *format++;
 			ft_parsing(current, &written, args);
 		}
-	}	
-	va_end (args);
-	return;
+	}
+	va_end(args);
+	return ;
 }
