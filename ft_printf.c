@@ -6,61 +6,51 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/25 17:12:46 by ddecourt         ###   ########.fr       */
+/*   Updated: 2020/12/27 23:12:02 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "libftprintf.h"
 
-void			ft_parsing(char current, int *written, va_list args)
+void			ft_parsing(char current, va_list args)
 {
-	int			value;
-	const char	*s;
-
 	if (current == 's')
-	{
-		s = (const char *)va_arg(args, const char *);
-		*written += ft_display_string(s);
-	}
+		ft_display_string(va_arg(args, const char *));
 	else
 	{
-		value = (int)va_arg(args, int);
 		if (current == 'd' || current == 'i')
-			*written += ft_display_int(value);
+			ft_display_int(va_arg(args, int));
 		if (current == 'c')
-			*written += ft_display_char((char)value);
+			ft_display_char((char)(va_arg(args, int)));
 		if (current == 'u')
-			*written += ft_display_unsigned(value);
+			ft_display_unsigned(va_arg(args, int));
 		if (current == 'o')
-			*written += ft_display_octal(value);
+			ft_display_octal(va_arg(args, int));
 		if (current == 'x' || current == 'X')
-			*written += ft_display_hexa(value);
+			ft_display_hexa(va_arg(args, int));
 	}
 }
 
 void			ft_printf(const char *format, ...)
 {
 	va_list		args;
-	int			written;
 	char		current;
 
-	written = 0;
 	va_start(args, format);
 	while (*format != '\0')
 	{
 		current = *format;
 		format++;
-		if (current != '%')
+		if (current == '%')
 		{
-			write(1, &current, 1);
-			current++;
-			continue;
+			current = *format++;
+			ft_parsing(current, args);
 		}
 		else
 		{
-			current = *format++;
-			ft_parsing(current, &written, args);
+			ft_putchar(current);
+			current++;
 		}
 	}
 	va_end(args);
