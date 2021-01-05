@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 22:54:52 by ddecourt          #+#    #+#              #
-#    Updated: 2020/12/25 00:06:08 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/01/05 15:09:01 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS	= ft_display_string.c \
 	  ft_display_octal.c \
 	  ft_display_hexa.c \
 	  ft_display_percent.c \
-	  ft_printftest.c \
+	  ft_display_point.c \
+	  ft_printf.c \
 	  
 
 OBJS	= ${SRCS:.c=.o}
