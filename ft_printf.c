@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/05 15:10:31 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/07 17:31:41 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			ft_parsing(char current, va_list args)
 		if (current == 'x' || current == 'X')
 			ft_display_hexa(va_arg(args, int));
 		if (current == 'p')
-			ft_display_point(va_arg(args, long int));
+			ft_display_point(va_arg(args, void *));
 	}
 }
 

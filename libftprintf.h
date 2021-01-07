@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/05 15:10:20 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/07 15:58:45 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		ft_display_unsigned(int n);
 void		ft_display_octal(int n);
 void		ft_display_hexa(int n);
 void		ft_display_percent(void);
-void		ft_display_point(long int);
+void		ft_display_point(void *n);
 void		ft_printf(const char *format, ...);
 
 #endif
