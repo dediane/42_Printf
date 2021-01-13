@@ -6,13 +6,13 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:46:37 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/07 17:48:53 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/12 21:40:45 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_size(long int n, int len)
+static int		get_size(unsigned int n, int len)
 {
 	int			size;
 
@@ -32,14 +32,14 @@ static int		get_size(long int n, int len)
 	return (size);
 }
 
-char			*ft_convert(int n, char *base)
+char			*ft_convert(unsigned int n, char *base)
 {
-	long int	nb;
+	unsigned int	nb;
 	int			size;
 	int			len;
 	char		*num;
 
-	nb = (long int)n;
+	nb = n;
 	len = ft_strlen(base);
 	size = get_size(nb, len);
 	if (!(num = malloc(sizeof(char) * (size + 1))))
