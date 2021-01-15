@@ -14,6 +14,7 @@ SRCS	= ft_putchar.c \
 	  ft_strlen.c \
 	  ft_putstr.c \
 	  ft_convert.c \
+	  ft_strchr.c \
 
 OBJS	= ${SRCS:.c=.o}
 

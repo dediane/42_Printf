@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/24 21:31:32 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/13 14:03:39 by ddecourt         ###   ########.fr       */
+/*   Created: 2020/11/16 23:30:05 by ddecourt          #+#    #+#             */
+/*   Updated: 2020/11/17 00:03:28 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+char	*ft_strchr(const char *s, int c)
+{
+	int i;
 
-# include <stdlib.h>
-# include <unistd.h>
-
-void		ft_putchar(char c);
-size_t		ft_strlen(char *s);
-void		ft_putstr(char *s);
-char		*ft_strchr(const char *s, int c);
-char		*ft_convert(unsigned int n, char *base);
-
-#endif
+	i = -1;
+	while (s[++i])
+	{
+		if (s[i] == (char)c)
+			return ((char*)&s[i]);
+	}
+	if (c == '\0')
+		return ((char*)&s[i]);
+	return (0);
+}

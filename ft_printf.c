@@ -6,12 +6,13 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/12 21:36:22 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/15 15:33:36 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "libftprintf.h"
+#include <stdio.h>
 
 void			ft_parsing(char current, va_list args)
 {
@@ -38,15 +39,25 @@ void			ft_printf(const char *format, ...)
 {
 	va_list		args;
 	char		current;
+	t_flags		flags;
 
 	va_start(args, format);
 	while (*format != '\0')
 	{
 		current = *format;
 		format++;
+		flags = ft_init_flags(flags);
 		if (current == '%')
 		{
 			current = *format++;
+			while (!ft_strchr("cspdiouxX", current))
+			{
+				ft_checkflag(current, &flags);
+				current = *format++;
+			}
+			printf("flags.minus = %d\n", flags.minus);
+			printf("flags>zero = %d\n", flags.zero);
+			printf("flags.plus = %d\n\n", flags.plus);
 			ft_parsing(current, args);
 		}
 		else
