@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/15 15:30:08 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/15 16:10:38 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef	struct	s_struct
 {
 	int	minus;
 	int plus;
+	int	num;
 	int	zero;
 	int	width;
 	int	prec;
