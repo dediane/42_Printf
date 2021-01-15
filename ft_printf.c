@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/15 16:03:37 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/15 23:54:47 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void			ft_printf(const char *format, ...)
 			}
 			printf("flags.minus = %d\n", flags.minus);
 			printf("flags.num = %d\n", flags.num);
+			printf("flags.dot = %d\n", flags.dot);
 			printf("flags.plus = %d\n\n", flags.plus);
 			ft_parsing(current, args);
 		}

@@ -6,7 +6,7 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:27:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/15 16:12:44 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/16 00:05:06 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void		ft_checkflag(char current, t_flags *flags)
 	if (current > '0' && current <= '9')
 		flags->num = (int)current - 48;
 	if (current == '.')
+	{	
 		flags->dot = 1;
+		if (flags->num > 0)
+			flags->prec = 1;
+		else
+			flags->width = 1;
+	}
 
 }
