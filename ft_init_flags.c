@@ -6,11 +6,10 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:56:34 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/15 16:06:09 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/18 23:36:05 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libftprintf.h"
 
 t_flags		ft_init_flags(t_flags flags)

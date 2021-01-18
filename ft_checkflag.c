@@ -6,11 +6,10 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:27:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/16 00:05:06 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/18 23:36:34 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libftprintf.h"
 
 void		ft_checkflag(char current, t_flags *flags)

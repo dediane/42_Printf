@@ -6,11 +6,11 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:46:37 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/12 21:40:45 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/18 23:41:09 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libftprintf.h"
 
 static int		get_size(unsigned int n, int len)
 {

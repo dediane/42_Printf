@@ -6,11 +6,11 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:19:09 by ddecourt          #+#    #+#             */
-/*   Updated: 2020/12/24 21:36:00 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/18 23:39:47 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libftprintf.h"
 
 size_t	ft_strlen(char *s)
 {

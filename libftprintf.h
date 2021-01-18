@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/16 00:05:02 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/18 23:48:24 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include "libft.h"
 
 typedef	struct	s_struct
 {
@@ -40,5 +39,10 @@ void		ft_display_point(void *n);
 void		ft_printf(const char *format, ...);
 void		ft_checkflag(char current, t_flags *flags);
 t_flags		ft_init_flags(t_flags flags);
+char		*ft_convert(unsigned int n, char *base);
+char		*ft_strchr(const char *s, int c);
+void		ft_putchar(char c);
+void		ft_putstr(char *s);
+size_t		ft_strlen(char *s);
 
 #endif
