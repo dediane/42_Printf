@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 22:54:52 by ddecourt          #+#    #+#              #
-#    Updated: 2021/01/18 23:44:29 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/01/19 22:49:30 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS	= ft_display_string.c \
 	  ft_display_unsigned.c \
 	  ft_display_octal.c \
 	  ft_display_hexa.c \
+	  ft_display_big_hexa.c \
 	  ft_display_percent.c \
 	  ft_display_point.c \
 	  ft_checkflag.c \
@@ -34,7 +35,7 @@ NAME	= libftprintf.a
 
 HEADER	= libftprintf.h
 
-CC	= gcc
+CC	= clang
 
 CFLAGS	= -Wall -Werror -Wextra
 RM	= rm -f
