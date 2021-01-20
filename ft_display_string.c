@@ -6,18 +6,21 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:54:56 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/18 23:35:37 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/20 21:24:32 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_display_string(const char *s)
+int		ft_display_string(const char *s)
 {
+	int size;
+
+	size = ft_strlen(s);;
 	while (*s)
 	{
 		ft_putchar(*s);
 		s++;
 	}
-	return;
+	return (size);
 }
