@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/20 21:09:29 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:50:30 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		ft_display_char(char c, t_flags flags);
 int		ft_display_int(int n, t_flags flags);
 void		ft_display_unsigned(int n);
 void		ft_display_octal(int n);
-void		ft_display_hexa(unsigned int n, t_flags flags);
+int		ft_display_hexa(unsigned int n, t_flags flags);
 void		ft_display_big_hexa(unsigned int n, t_flags flags);
 void		ft_display_percent(void);
 void		ft_display_point(void *n);

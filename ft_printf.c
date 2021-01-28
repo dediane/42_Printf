@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/20 21:18:55 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/29 00:09:10 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void			ft_parsing(char current, va_list args, t_flags flags, int *written)
 		if (current == 'o')
 			ft_display_octal(va_arg(args, int));
 		if (current == 'x')
-			ft_display_hexa(va_arg(args, unsigned int), flags);
+			*written += ft_display_hexa(va_arg(args, unsigned int), flags);
 		if (current == 'X')
 			ft_display_big_hexa(va_arg(args, unsigned int), flags);
 		if (current == 'p')
@@ -53,7 +53,6 @@ int			ft_printf(const char *format, ...)
 		if (current == '%')
 		{
 			current = *format++;
-			written++;
 			while (!ft_strchr("cspdiouxX", current))
 			{
 				ft_checkflag(current, &flags);
