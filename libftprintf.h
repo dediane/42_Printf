@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/29 01:05:07 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/30 13:15:07 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ typedef	struct	s_struct
 {
 	int	minus;
 	int	plus;
-	int	num;
+	int	num_after;
+	int	num_before;
 	int	hash;
 	int	star;
 	int	zero;
@@ -37,7 +38,7 @@ void		ft_display_unsigned(int n);
 void		ft_display_octal(int n);
 int		ft_display_hexa(unsigned int n, t_flags flags);
 int		ft_display_big_hexa(unsigned int n, t_flags flags);
-void		ft_display_percent(void);
+int		ft_display_percent(void);
 void		ft_display_point(void *n);
 int		ft_printf(const char *format, ...);
 void		ft_checkflag(char current, t_flags *flags);
@@ -46,6 +47,7 @@ char		*ft_convert(unsigned int n, char *base);
 char		*ft_strchr(const char *s, int c);
 void		ft_putchar(char c);
 void		ft_putstr(char *s);
+void		ft_putnbr(int n);
 size_t		ft_strlen(const char *s);
 
 #endif

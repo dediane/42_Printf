@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_percent.c                               :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/24 23:58:07 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/29 14:57:26 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/01/29 00:44:27 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/01/30 13:17:54 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
-int		ft_display_percent(void)
+void	ft_putnbr(int n)
 {
-	int size;
+	long int nb;
 
-	ft_putchar('%');
-	size = 1;
-	return(size);
+	nb = (long int)n;
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putchar(nb % 10 + '0');
+	}
+	if (nb < 10)
+	{
+		ft_putchar(nb % 10 + '0');
+	}
 }

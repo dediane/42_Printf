@@ -6,14 +6,15 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/29 01:12:46 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/29 18:40:59 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
 
-void			ft_parsing(char current, va_list args, t_flags flags, int *written)
+void			ft_parsing(char current, va_list args, t_flags flags,
+int *written)
 {
 	if (current == 's')
 		*written += ft_display_string(va_arg(args, const char *));
@@ -33,13 +34,15 @@ void			ft_parsing(char current, va_list args, t_flags flags, int *written)
 			*written += ft_display_big_hexa(va_arg(args, unsigned int), flags);
 		if (current == 'p')
 			ft_display_point(va_arg(args, void *));
+		if (current == '%')
+			*written += ft_display_percent();
 	}
 }
 
-int			ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	va_list		args;
-	int		written;
+	int			written;
 	char		current;
 	t_flags		flags;
 
@@ -53,11 +56,10 @@ int			ft_printf(const char *format, ...)
 		if (current == '%')
 		{
 			current = *format++;
-			while (!ft_strchr("cspdiouxX", current))
+			while (!ft_strchr("cspdiouxX%", current))
 			{
 				ft_checkflag(current, &flags);
 				current = *format++;
-				written++;
 			}
 			ft_parsing(current, args, flags, &written);
 		}
