@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/29 18:40:59 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/02 21:50:56 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			ft_parsing(char current, va_list args, t_flags flags,
 int *written)
 {
 	if (current == 's')
-		*written += ft_display_string(va_arg(args, const char *));
+		*written += ft_display_string(va_arg(args, const char *), &flags);
 	else
 	{
 		if (current == 'd' || current == 'i')

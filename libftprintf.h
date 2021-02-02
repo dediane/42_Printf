@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/30 15:06:35 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/02 21:46:12 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef	struct	s_struct
 	int	dot;
 }				t_flags;
 
-int		ft_display_string(const char *s);
+int		ft_display_string(const char *s, t_flags *flags);
 int		ft_display_char(char c, t_flags flags);
 int		ft_display_int(int n, t_flags flags);
 void		ft_display_unsigned(int n);
