@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/30 13:15:07 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/30 15:06:35 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char		*ft_convert(unsigned int n, char *base);
 char		*ft_strchr(const char *s, int c);
 void		ft_putchar(char c);
 void		ft_putstr(char *s);
-void		ft_putnbr(int n);
+void		ft_putnbr(int n, t_flags *flags);
 size_t		ft_strlen(const char *s);
 
 #endif

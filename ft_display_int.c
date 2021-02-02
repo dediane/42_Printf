@@ -6,12 +6,11 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/30 13:18:48 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/01/31 16:09:36 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
 int		ft_get_size(long int n)
 {
@@ -56,6 +55,15 @@ int	ft_handle_flags(int size, t_flags *flags)
 			}
 		}
 	}
+	else if (flags->num_after != 0)
+	{
+		while (i < (flags->num_before - size))
+		{
+			ft_putchar('0');
+			i++;
+		}
+
+	}
 	return (i);
 }
 
@@ -72,7 +80,11 @@ int		ft_display_int(int n, t_flags flags)
 		flags.plus = 0;
 		size++;
 	}
+	if ((nb < 0) && (flags.zero == 1))
+	{
+		ft_putchar('-');
+	}
 	size += ft_handle_flags(size, &flags);
-	ft_putnbr(n);
+	ft_putnbr(n, &flags);
 	return (size);
 }
