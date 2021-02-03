@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/03 22:50:55 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/03 23:06:46 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,13 @@ int				ft_display_int(int n, t_flags flags)
 
 	nb = (long int)n;
 	size = ft_get_size(nb);
-	if (flags.plus == 1)
+	if ((flags.plus == 1) && (n >= 0))
 	{
-		ft_putchar('+');
-		flags.plus = 0;
 		size++;
+		size += ft_handle_flags(size, &flags);
+		ft_putchar('+');
+		ft_putnbr(n, &flags);
+		return (size);
 	}
 	if (flags.minus == 1)
 	{
@@ -85,10 +87,11 @@ int				ft_display_int(int n, t_flags flags)
 		size += ft_handle_flags(size, &flags);
 		return (size);
 	}
-	if ((nb < 0) && (flags.zero == 1) && (flags.dot == 1))
+	if ( (flags.zero == 1) && (flags.dot == 1))
 	{
 		size += ft_handle_flags(size, &flags);
-		ft_putchar('-');
+		if (n < 0)
+			ft_putchar('-');;
 		ft_putnbr(n, &flags);
 		return (size);
 	}
