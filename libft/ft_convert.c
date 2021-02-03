@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:46:37 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/18 23:41:09 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/02 22:40:37 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		get_size(unsigned int n, int len)
 {
-	int			size;
+	int		size;
 
 	size = 0;
 	if (n < 0)
@@ -35,9 +35,9 @@ static int		get_size(unsigned int n, int len)
 char			*ft_convert(unsigned int n, char *base)
 {
 	unsigned int	nb;
-	int			size;
-	int			len;
-	char		*num;
+	int		size;
+	int		len;
+	char	*num;
 
 	nb = n;
 	len = ft_strlen(base);

@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:54:56 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/02 21:58:46 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/02 22:25:32 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_display_string(const char *s, t_flags *flags)
 			s++;
 		}
 	}
-	if ((flags->num_after != 0) && (flags->dot == 1)) 
+	if ((flags->num_after != 0) && (flags->dot == 1))
 	{
 		size = flags->num_after;
 		while (s[i] && i < flags->num_after)

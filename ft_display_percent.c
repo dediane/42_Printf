@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:58:07 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/29 14:57:26 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/02 22:23:52 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int		ft_display_percent(void)
 
 	ft_putchar('%');
 	size = 1;
-	return(size);
+	return (size);
 }

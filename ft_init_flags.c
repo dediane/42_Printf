@@ -6,7 +6,7 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:56:34 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/29 18:30:03 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/02 22:26:53 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ t_flags		ft_init_flags(t_flags flags)
 	flags.width = 0;
 	flags.prec = 0;
 	flags.dot = 0;
-
-	return(flags);
+	return (flags);
 }

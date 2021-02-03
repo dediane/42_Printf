@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 00:00:31 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/18 23:34:51 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/02 22:23:27 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void		ft_display_octal(int n)
 	res = ft_convert(n, "01234567");
 	ft_putstr(res);
 	free(res);
-	return;
+	return ;
 }
