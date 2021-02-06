@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/03 14:16:58 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/06 14:57:06 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		ft_display_point(void *n);
 int		ft_printf(const char *format, ...);
 void		ft_checkflag(char current, t_flags *flags);
 t_flags		ft_init_flags(t_flags flags);
-int				ft_write_width(char c, int i, int max, int size);
+int				ft_write_width(char c, int max, int size);
 int				ft_handle_flags_hexa(int size, t_flags *flags);
 char		*ft_convert(unsigned int n, char *base);
 char		*ft_strchr(const char *s, int c);
