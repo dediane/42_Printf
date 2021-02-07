@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_char.c                                  :+:      :+:    :+:   */
+/*   ft_putnchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/24 23:56:13 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/06 21:50:46 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/02/07 15:10:41 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/02/07 15:27:15 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
-int		ft_display_char(char c, t_flags flags)
+void	ft_putnchr(const char *s, int n)
 {
-	int	size;
-	int	i;
+	int i;
 
-	size = 1;
 	i = 0;
-	if (flags.num_before != 0)
+	while (s[i] && i < n)
 	{
-		size = flags.num_before;
-		while (i < size - 1)
-		{
-			ft_putchar(' ');
-			i++;
-		}
+		write(1, &s[i], 1);
+		i++;
 	}
-	ft_putchar(c);
-	return (size);
 }

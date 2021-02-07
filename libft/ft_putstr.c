@@ -6,13 +6,13 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:38:15 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/01/18 23:40:19 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/07 15:05:20 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-void	ft_putstr(char *s)
+void	ft_putstr(const char *s)
 {
 	if (s)
 		write(1, s, ft_strlen(s));

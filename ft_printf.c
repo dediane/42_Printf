@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/02 21:50:56 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/07 23:18:55 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int *written)
 		if (current == 'd' || current == 'i')
 			*written += ft_display_int(va_arg(args, int), flags);
 		if (current == 'c')
-			ft_display_char((char)(va_arg(args, int)), flags);
+			*written += ft_display_char((char)(va_arg(args, int)), flags);
 		if (current == 'u')
-			ft_display_unsigned(va_arg(args, int));
+			*written += ft_display_unsigned(va_arg(args, unsigned int));
 		if (current == 'o')
 			ft_display_octal(va_arg(args, int));
 		if (current == 'x')
@@ -33,9 +33,9 @@ int *written)
 		if (current == 'X')
 			*written += ft_display_big_hexa(va_arg(args, unsigned int), flags);
 		if (current == 'p')
-			ft_display_point(va_arg(args, void *));
+			 ft_display_point(va_arg(args, void *));
 		if (current == '%')
-			*written += ft_display_percent();
+			*written += ft_display_percent(flags);
 	}
 }
 
