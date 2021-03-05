@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/23 12:13:14 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/05 13:52:41 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int				ft_printf(const char *format, ...)
 	t_flags		flags;
 
 	written = 0;
-	va_start(args, format)
+	va_start(args, format);
 	while (*format != '\0')
 	{
 		current = *format;
