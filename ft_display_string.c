@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:54:56 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/08 17:33:20 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/08 20:01:27 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,7 @@ int		ft_handle_flag_dot_minus(const char *s, t_flags *flags, int size)
 int		ft_display_string(const char *s, t_flags *flags)
 {
 	int size;
-	int i;
 
-	i = 0;
 	size = ft_strlen(s);
 	if (flags->dot == 0)
 		size = ft_handle_flag_dot_zero(s, flags, size);

@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/07 23:11:15 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/02/08 20:05:12 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ void		ft_putnchr(const char *s, int n);
 void		ft_putstr(const char *s);
 void		ft_putnbr(int n, t_flags *flags);
 size_t		ft_strlen(const char *s);
+int		ft_handle_flag_dot_nominus(const char *s, t_flags *flags, int size);
+int		ft_handle_flag_dot_minus(const char *s, t_flags *flags, int size);
+int		ft_handle_flag_dot_zero(const char *s, t_flags *flags, int size);
 
 #endif
