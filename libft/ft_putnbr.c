@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 00:44:27 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/06 17:34:24 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/10 13:04:23 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ft_putnbr(int n, t_flags *flags)
 	nb = (long int)n;
 	if (nb < 0)
 	{
+		if (flags->num_after == 0 && flags->num_before == 0)
+			ft_putchar('-');
 		nb *= -1;
 	}
 	if (nb > 9)
