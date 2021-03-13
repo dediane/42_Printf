@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/13 21:57:33 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/13 21:58:58 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef	struct	s_struct
 int		ft_display_string(const char *s, t_flags *flags);
 int		ft_display_char(char c, t_flags flags);
 int		ft_display_int(int n, t_flags flags);
-int		ft_display_unsigned(int n, t_flags flags);
+int		ft_display_unsigned(int n, t_flags *flags);
 void		ft_display_octal(int n);
 int		ft_display_hexa(unsigned int n, t_flags flags);
 int		ft_display_big_hexa(unsigned int n, t_flags flags);
