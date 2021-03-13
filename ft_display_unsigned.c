@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:07 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/07 23:17:44 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/10 14:38:18 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void		ft_put_unsigned(int n)
 	ft_putchar(n % 10 + '0');
 }
 
-int		ft_display_unsigned(int n)
+int		ft_display_unsigned(int n, t_flags *flags)
 {
 	int size;
 	long int nb;
 
-	nb = n;
+	nb = (long int)n;
 	size = get_size(nb);
 	ft_put_unsigned(nb);
 	return (size);

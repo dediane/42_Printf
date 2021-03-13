@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/05 13:52:41 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/10 14:36:39 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int *written)
 		if (current == 'c')
 			*written += ft_display_char((char)(va_arg(args, int)), flags);
 		if (current == 'u')
-			*written += ft_display_unsigned(va_arg(args, unsigned int));
+			*written += ft_display_unsigned((va_arg(args, unsigned int)), flags);
 		if (current == 'o')
 			ft_display_octal(va_arg(args, int));
 		if (current == 'x')
