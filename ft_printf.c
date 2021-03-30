@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/10 14:36:39 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:33:02 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int *written)
 		if (current == 'u')
 			*written += ft_display_unsigned((va_arg(args, unsigned int)), flags);
 		if (current == 'o')
-			ft_display_octal(va_arg(args, int));
+			*written += ft_display_octal(va_arg(args, int));
 		if (current == 'x')
 			*written += ft_display_hexa(va_arg(args, unsigned int), flags);
 		if (current == 'X')
 			*written += ft_display_big_hexa(va_arg(args, unsigned int), flags);
 		if (current == 'p')
-			 ft_display_point(va_arg(args, void *));
+			*written += ft_display_point(va_arg(args, void *));
 		if (current == '%')
 			*written += ft_display_percent(flags);
 	}
@@ -52,15 +52,16 @@ int				ft_printf(const char *format, ...)
 	{
 		current = *format;
 		format++;
+		/*if (flags.star == 0)*/
 		flags = ft_init_flags(flags);
 		if (current == '%')
 		{
-			current = *format++;
+			current = *format++;	
 			while (!ft_strchr("cspdiouxX%", current))
 			{
-				ft_checkflag(current, &flags);
+				ft_checkflag(current, &flags, args);
 				current = *format++;
-			}
+			}	
 			ft_parsing(current, args, flags, &written);
 		}
 		else

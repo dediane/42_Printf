@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 22:46:57 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/03 23:25:49 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:15:45 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			ft_display_big_hexa(unsigned int n, t_flags flags)
 		size += ft_handle_flags_hexa(size, &flags);
 		ft_putstr(res);
 	}
-	else 
+	else
 	{
 		ft_putstr(res);
 		size += ft_handle_flags_hexa(size, &flags);

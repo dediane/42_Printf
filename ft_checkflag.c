@@ -6,20 +6,20 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:27:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/06 19:52:09 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:31:24 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_checkflag(char current, t_flags *flags)
+void		ft_checkflag(char current, t_flags *flags, va_list args)
 {
 	if (current == '-')
 		flags->minus = 1;
 	if (current == '+')
 		flags->plus = 1;
 	if (current == '*')
-		flags->star = 1;
+		flags->star = va_arg(args, int);
 	if (current == '#')
 		flags->hash = 1;
 	if ((current == '0') && (flags->num_before == 0) && (flags->num_after == 0))

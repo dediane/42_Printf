@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/10 14:27:13 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/30 11:38:46 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,55 @@ int				ft_handle_flags(int size, t_flags *flags)
 	if ((flags->num_before != 0) && (flags->num_after == 0))
 	{
 		if ((flags->zero == 1) && (flags->dot == 0))
-			i = ft_write_width('0', flags->num_before, size);
+			i += ft_write_width('0', flags->num_before, size);
 		if ((flags->zero == 1) && (flags->dot == 1))
-			i = ft_write_width(' ', flags->num_before, size);
+			i += ft_write_width(' ', flags->num_before, size);
 		if (flags->zero == 0)
-			i = ft_write_width(' ', flags->num_before, size);
+			i += ft_write_width(' ', flags->num_before, size);
 	}
 	if (flags->num_after != 0)
 	{
+		if (flags->num_before != 0)
+		{
+			if (flags->num_after < flags->num_before)
+				i += ft_write_width(' ', flags->num_before, flags->num_after);
+		}
 		if ((flags->zero == 0) && (flags->dot == 1))
-			i = ft_write_width('0', flags->num_after, size);
+			i += ft_write_width('0', flags->num_after, size);
 		if ((flags->zero == 1) && (flags->dot == 1))
-			i = ft_write_width('0', flags->num_after, size);
+			i += ft_write_width('0', flags->num_after, size);
 	}
 	return (i);
 }
 
 int				ft_display_int(int n, t_flags flags)
+{
+	long int nb;
+	int			size;
+
+	nb = (long int)n;
+	size = ft_get_size(nb);
+
+	if(flags.minus == 1)
+	{
+		if (nb < 0)
+			ft_putchar('-');
+		ft_putnbr(nb);
+		size+= ft_handle_flags(size, &flags);
+	}
+	else
+	{
+		if (nb < 0 && (flags.zero == 1 || flags.num_after != 0))
+			ft_putchar('-');
+		size += ft_handle_flags(size, &flags);
+		if (nb < 0 && (flags.zero == 0 && flags.num_after == 0))
+			ft_putchar('-');
+		ft_putnbr(nb);
+	}
+	return (size);
+}
+
+/*int				ft_display_int(int n, t_flags flags)
 {
 	long int	nb;
 	int			size;
@@ -78,14 +110,14 @@ int				ft_display_int(int n, t_flags flags)
 	if ((flags.zero == 1) && (nb < 0) && (flags.num_after == 0))
 		ft_putchar('-');
 	if ((flags.num_before == 0) && (flags.num_after == 0))
-		ft_putnbr(nb, &flags);
+		ft_putnbr(nb);
 	if ((flags.num_before != 0) && (flags.num_after == 0))
 	{
 		if (flags.minus == 0)
 			size += ft_handle_flags(size, &flags);
 		if ((flags.zero == 0) && (nb < 0))
 			ft_putchar('-');
-		ft_putnbr(nb, &flags);
+		ft_putnbr(nb);
 		if (flags.minus == 1)
 			size += ft_handle_flags(size, &flags);
 	}
@@ -98,9 +130,11 @@ int				ft_display_int(int n, t_flags flags)
 		}
 		else
 			size += ft_handle_flags(size, &flags);
-		ft_putnbr(nb, &flags);
-		if (flags.num_before != 0)
+		ft_putnbr(nb);
+		if ((flags.num_before != 0) && (flags.num_before < flags.num_after))
 			size += ft_write_width(' ', flags.num_before, size);
 	}
 	return (size);
-}
+}*/
+
+
