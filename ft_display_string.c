@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:54:56 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/19 10:29:29 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:29:02 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,17 @@ int		ft_handle_flag_dot_nominus(const char *s, t_flags *flags, int size)
 		}
 		else
 			ft_putstr(s);
+	}
+	if (flags->num_before == flags->num_after)
+	{
+		ft_write_width(' ', flags->num_before, size);
+			if (flags->num_after < size)
+			{
+				ft_putnchr(s, flags->num_after);
+				return (flags->num_after);
+			}
+		ft_putstr(s);
+		return (flags->num_before);
 	}
 	if (flags->num_before > flags->num_after)
 	{
@@ -98,7 +109,9 @@ int		ft_display_string(const char *s, t_flags *flags)
 	int size;
 
 	if (s == NULL)
-		s = "null";
+	{
+		s = "(null)";
+	}
 	size = ft_strlen(s);
 	if (flags->dot == 0)
 		size = ft_handle_flag_dot_zero(s, flags, size);

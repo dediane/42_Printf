@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 00:01:35 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/14 19:50:35 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:04:40 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,16 @@ int			ft_display_hexa(unsigned int n, t_flags flags)
 				size += ft_write_width(' ', flags.num_before, flags.num_after);
 				size += ft_write_width('0', flags.num_before, size);
 				ft_putstr(res);
+				free(res);
+				return (size);
 			}
 			if (((flags.num_after > 0) && (flags.num_before == 0) && (flags.num_after > size))
 			|| ((flags.num_after > size) && (flags.num_before < flags.num_after)))
 			{
 				size += ft_write_width('0', flags.num_after, size);
 				ft_putstr(res);
+				free(res);
+				return (size);
 			}
 			else
 			{
@@ -81,9 +85,12 @@ int			ft_display_hexa(unsigned int n, t_flags flags)
 	}
 	if (flags.dot == 0)
 	{
+		if (flags.minus == 0)
+			size += ft_handle_flags_hexa(size, &flags);
 		ft_putstr(res);
+		if (flags.minus == 1)
+			size += ft_handle_flags_hexa(size, &flags);
 	}
-
 	free(res);
 	return (size);
 }

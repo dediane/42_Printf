@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/30 11:38:46 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/03/30 15:52:01 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,18 @@ int				ft_handle_flags(int size, t_flags *flags)
 	}
 	if (flags->num_after != 0)
 	{
-		if (flags->num_before != 0)
+		if ((flags->num_before != 0) && (flags->minus == 0))
 		{
-			if (flags->num_after < flags->num_before)
+			if ((flags->num_after < flags->num_before) && (flags->num_after < size))
+				i += ft_write_width(' ', flags->num_before, size);
+			if ((flags->num_after < flags->num_before) && (flags->num_after > size))
+			{
 				i += ft_write_width(' ', flags->num_before, flags->num_after);
+			}
 		}
-		if ((flags->zero == 0) && (flags->dot == 1))
-			i += ft_write_width('0', flags->num_after, size);
-		if ((flags->zero == 1) && (flags->dot == 1))
-			i += ft_write_width('0', flags->num_after, size);
+		i += ft_write_width('0', flags->num_after, size);
+		if (flags->minus != 0)
+			i+= ft_write_width(' ', flags->num_before, size);
 	}
 	return (i);
 }
@@ -91,10 +94,19 @@ int				ft_display_int(int n, t_flags flags)
 	else
 	{
 		if (nb < 0 && (flags.zero == 1 || flags.num_after != 0))
+		{
 			ft_putchar('-');
-		size += ft_handle_flags(size, &flags);
+			size += ft_handle_flags(size + 1, &flags);
+		}
 		if (nb < 0 && (flags.zero == 0 && flags.num_after == 0))
+		{
+			size += ft_handle_flags(size, &flags);
 			ft_putchar('-');
+		}
+		else
+		{
+			size += ft_handle_flags(size, &flags);
+		}
 		ft_putnbr(nb);
 	}
 	return (size);
