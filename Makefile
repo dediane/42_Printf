@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 22:54:52 by ddecourt          #+#    #+#              #
-#    Updated: 2021/02/07 15:13:21 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/03/31 13:52:52 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,7 @@ $(NAME):	${OBJS}
 all:	${NAME}
 
 clean: 
-	${RM} *.o
-	${RM} libft/*.o
+	${RM} $(OBJS)
 
 fclean:	clean
 		${RM} ${NAME}
