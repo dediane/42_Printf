@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 22:54:52 by ddecourt          #+#    #+#              #
-#    Updated: 2021/03/31 13:52:52 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/04/02 15:09:25 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS	= ft_display_string.c \
 	  libft/ft_putchar.c \
 	  libft/ft_convert.c \
 	  libft/ft_putnbr.c \
+	  libft/ft_strdup.c \
 	  
 
 OBJS	= ${SRCS:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/31 13:50:33 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/02 15:08:58 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_display_octal(int n);
 int		ft_display_hexa(unsigned int n, t_flags flags);
 int		ft_display_big_hexa(unsigned int n, t_flags flags);
 int		ft_display_percent(t_flags flags);
-int		ft_display_point(void *n);
+int		ft_display_point(void *n, t_flags flags);
 int		ft_printf(const char *format, ...);
 void		ft_checkflag(char current, t_flags *flags, va_list args);
 t_flags		ft_init_flags(t_flags flags);
@@ -52,6 +52,7 @@ void		ft_putnchr(const char *s, int n);
 void		ft_putstr(const char *s);
 void		ft_putnbr(int n);
 size_t		ft_strlen(const char *s);
+char 		*ft_strdup(const char *s1);
 int		ft_handle_flag_dot_nominus(const char *s, t_flags *flags, int size);
 int		ft_handle_flag_dot_minus(const char *s, t_flags *flags, int size);
 int		ft_handle_flag_dot_zero(const char *s, t_flags *flags, int size);

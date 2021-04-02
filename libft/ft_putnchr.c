@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:41 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/07 15:27:15 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/02 13:58:10 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putnchr(const char *s, int n)
 	i = 0;
 	while (s[i] && i < n)
 	{
-		write(1, &s[i], 1);
+		ft_putchar(s[i]);
 		i++;
 	}
 }

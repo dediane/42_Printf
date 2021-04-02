@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:38:15 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/07 15:05:20 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/02 13:56:50 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 void	ft_putstr(const char *s)
 {
-	if (s)
-		write(1, s, ft_strlen(s));
+	unsigned int i;
+
+	i = 0;
+	while (i < ft_strlen(s))
+	{
+		ft_putchar(s[i]);
+		i++;
+	}		
 }

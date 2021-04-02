@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:54:56 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/31 15:35:34 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:25:49 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,5 @@ int		ft_display_string(const char *s, t_flags *flags)
 		if (flags->minus == 1)
 			size = ft_handle_flag_dot_minus(s, flags, size);
 	}
-	return (get_num(0));
+	return (0);
 }

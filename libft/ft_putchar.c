@@ -6,11 +6,12 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:30:49 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/31 13:53:53 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:10:21 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
+#include <stdio.h>
 
 int		get_num(int i)
 {

@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/31 13:48:08 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:32:40 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void			ft_parsing(char current, va_list args, t_flags flags)
 		if (current == 'X')
 			 ft_display_big_hexa(va_arg(args, unsigned int), flags);
 		if (current == 'p')
-			 ft_display_point(va_arg(args, void *));
+			 ft_display_point(va_arg(args, void *), flags);
 		if (current == '%')
 			 ft_display_percent(flags);
 	}
