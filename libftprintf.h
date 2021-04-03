@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/03 13:47:51 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/03 15:20:43 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef	struct	s_struct
 	int	dot;
 }				t_flags;
 
-int		ft_display_string(const char *s, t_flags *flags);
+int		ft_display_string(const char *s, t_flags flags);
 int		ft_display_char(char c, t_flags flags);
 int		ft_display_int(int n, t_flags flags);
 int		ft_display_unsigned(int n, t_flags flags);
@@ -53,9 +53,9 @@ void		ft_putstr(const char *s);
 void		ft_putnbr(int n);
 size_t		ft_strlen(const char *s);
 char 		*ft_strdup(const char *s1);
-int		ft_handle_flag_dot_nominus(const char *s, t_flags *flags, int size);
+/*int		ft_handle_flag_dot_nominus(const char *s, t_flags *flags, int size);
 int		ft_handle_flag_dot_minus(const char *s, t_flags *flags, int size);
-int		ft_handle_flag_dot_zero(const char *s, t_flags *flags, int size);
+int		ft_handle_flag_dot_zero(const char *s, t_flags *flags, int size);*/
 int		get_num(int i);
 int		ft_handle_prec_hexa(int size, t_flags *flags);
 int		ft_handle_width(int size, t_flags *flags);

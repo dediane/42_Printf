@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/03 12:30:18 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/03 15:21:47 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void			ft_parsing(char current, va_list args, t_flags flags)
 {
 	if (current == 's')
-		ft_display_string(va_arg(args, const char *), &flags);
+		ft_display_string(va_arg(args, const char *), flags);
 	if (current == 'd' || current == 'i')
 		ft_display_int(va_arg(args, int), flags);
 	if (current == 'c')
@@ -49,7 +49,7 @@ int				ft_printf(const char *format, ...)
 		flags = ft_init_flags(flags);
 		if (current == '%')
 		{
-			current = *format++;	
+			current = *format++;
 			while (!ft_strchr("cspdiouxX%", current))
 			{
 				ft_checkflag(current, &flags, args);
