@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:07 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/03/13 22:08:15 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:20:15 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int		ft_display_unsigned(int n, t_flags flags)
 {
-	int size;
 	long int nb;
 
 	nb = (long int)n;
-	size = ft_display_int(nb, flags);
-	return (size);
+	ft_display_int(nb, flags);
+	return (0);
 }

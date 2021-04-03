@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:58:07 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/02/06 22:05:40 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:15:31 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,25 @@ int		ft_display_percent(t_flags flags)
 	int i;
 
 	size = 1;
-	i = 0;
+	i = -1;
 	if ((flags.num_before != 0) && (flags.minus == 0) && (flags.zero == 0))
 	{
 		size = flags.num_before;
-		while (i < size - 1)
-		{
+		while (++i < size - 1)
 			ft_putchar(' ');
-			i++;
-		}
 	}
 	if ((flags.num_before != 0) && (flags.minus == 0) && (flags.zero == 1))
 	{
 		size = flags.num_before;
-		while (i < size - 1)
-		{
+		while (++i < size - 1)
 			ft_putchar('0');
-			i++;
-		}
 	}
-
 	ft_putchar('%');
 	if ((flags.num_before != 0) && (flags.minus == 1))
 	{
 		size = flags.num_before;
-		while (i < size - 1)
-		{
+		while (++i < size - 1)
 			ft_putchar(' ');
-			i++;
-		}
 	}
 	return (size);
 }

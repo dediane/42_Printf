@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/02 15:08:58 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/03 13:47:51 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ int		ft_handle_flag_dot_nominus(const char *s, t_flags *flags, int size);
 int		ft_handle_flag_dot_minus(const char *s, t_flags *flags, int size);
 int		ft_handle_flag_dot_zero(const char *s, t_flags *flags, int size);
 int		get_num(int i);
+int		ft_handle_prec_hexa(int size, t_flags *flags);
+int		ft_handle_width(int size, t_flags *flags);
 
 #endif
