@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:46:37 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/02 15:10:58 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/03 23:09:53 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int		get_size(unsigned int n, int len)
 	return (size);
 }
 
-char			*ft_convert(unsigned int n, char *base)
+char			*ft_convert(unsigned long int n, char *base)
 {
-	unsigned int	nb;
+	unsigned long int	nb;
 	int		size;
 	int		len;
 	char	*num;
