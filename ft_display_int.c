@@ -6,43 +6,11 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/06 12:52:36 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/06 14:34:44 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-int				ft_get_size(long int n)
-{
-	int			size;
-
-	size = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		size++;
-	}
-	while (n > 10)
-	{
-		n = n / 10;
-		size++;
-	}
-	size++;
-	return (size);
-}
-
-int				ft_write_width(char c, int max, int size)
-{
-	int i;
-
-	i = 0;
-	while (i < (max - size))
-	{
-		ft_putchar(c);
-		i++;
-	}
-	return (i);
-}
 
 int				ft_handle_prec(int size, int nb, t_flags *flags)
 {
@@ -96,21 +64,8 @@ int				ft_display_int(int n, t_flags flags)
 	nb = (long int)n;
 	size = ft_get_size(nb);
 
-	if ((nb == 0) && (flags.dot == 1) )
-	{
-		if ((flags.num_before == 0) && (flags.num_after == 0))
-			return (0);
-		if ((flags.num_before != 0) && (flags.num_after == 0))
-		{
-			while (flags.num_before > 0)
-			{
-				ft_putchar(' ');
-				flags.num_before--;
-			}
-			return (0);
-		}
-	}
-
+	if (ft_check_exceptions_zero(nb, flags) == 1)
+		return(0);
 	if ((flags.num_before == 0) && (flags.num_after == 0))
 	{
 		if (nb < 0)

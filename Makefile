@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 22:54:52 by ddecourt          #+#    #+#              #
-#    Updated: 2021/04/02 15:09:25 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/04/06 14:32:44 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS	= ft_display_string.c \
 	  ft_checkflag.c \
 	  ft_init_flags.c \
 	  ft_printf.c \
+	  ft_printf_utils.c \
 	  libft/ft_strlen.c \
 	  libft/ft_strchr.c \
 	  libft/ft_putstr.c \
