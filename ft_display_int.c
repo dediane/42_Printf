@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/03 13:00:38 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/06 12:52:36 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,21 @@ int				ft_display_int(int n, t_flags flags)
 
 	nb = (long int)n;
 	size = ft_get_size(nb);
+
+	if ((nb == 0) && (flags.dot == 1) )
+	{
+		if ((flags.num_before == 0) && (flags.num_after == 0))
+			return (0);
+		if ((flags.num_before != 0) && (flags.num_after == 0))
+		{
+			while (flags.num_before > 0)
+			{
+				ft_putchar(' ');
+				flags.num_before--;
+			}
+			return (0);
+		}
+	}
 
 	if ((flags.num_before == 0) && (flags.num_after == 0))
 	{
