@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/09 22:32:27 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/10 00:49:55 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ int				ft_handle_width(int size, int nb, t_flags *flags)
 				size--;
 			ft_write_width('0', flags->num_after, size);
 		}
-		if (flags->num_after > flags->num_before)
-			ft_write_width('0', flags->num_before, size);
 	}
 	return (0);
 }

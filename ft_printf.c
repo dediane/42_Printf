@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:59:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/06 00:29:07 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/09 23:50:09 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void			ft_parsing(char current, va_list args, t_flags flags)
 	if (current == 'c')
 		ft_display_char((char)(va_arg(args, unsigned int)), flags);
 	if (current == 'u')
-		ft_display_unsigned((va_arg(args, unsigned int)), flags);
+		ft_display_unsigned((va_arg(args, long unsigned int)), flags);
 	if (current == 'o')
 		ft_display_octal(va_arg(args, int));
 	if (current == 'x')

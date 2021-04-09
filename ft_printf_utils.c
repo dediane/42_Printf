@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:21:23 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/06 14:28:36 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/09 23:44:12 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ int	ft_check_exceptions_zero(int nb, t_flags flags)
 			}
 			return (1);
 		}
+		if ((flags.num_before == 0) && (flags.num_after != 0))
+		{
+			while(flags.num_after > 0)
+			{
+				ft_putchar('0');
+				flags.num_after--;
+			}
+			return (1);
+		}
 	}
 	return(0);
 }
@@ -41,6 +50,20 @@ int				ft_get_size(long int n)
 		n *= -1;
 		size++;
 	}
+	while (n > 10)
+	{
+		n = n / 10;
+		size++;
+	}
+	size++;
+	return (size);
+}
+
+ int				ft_get_size_u(long unsigned int n)
+{
+	int	size;
+
+	size = 0;
 	while (n > 10)
 	{
 		n = n / 10;

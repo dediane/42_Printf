@@ -6,22 +6,17 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:46:37 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/03 23:09:53 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/10 01:05:28 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-static int		get_size(unsigned int n, int len)
+static int		get_size(long unsigned int n, int len)
 {
 	int		size;
 
 	size = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		size++;
-	}
 	while (n > 0)
 	{
 		n = n / len;

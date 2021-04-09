@@ -6,7 +6,7 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:52:17 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/03 23:10:08 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/10 01:08:06 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_display_point(void *n, t_flags flags)
 	}
 	if (n != NULL)
 	{
-		res = ft_convert((unsigned long int)n, "0123456789abcdef");
+		res = ft_convert((unsigned long)n, "0123456789abcdef");
 		size = ft_strlen(res);
 	}
 	if ((flags.num_before != 0))
