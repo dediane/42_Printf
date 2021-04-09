@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 00:01:35 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/06 14:38:14 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/09 21:45:54 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,20 @@ int				ft_handle_flags_hexa(int size, t_flags *flags)
 	}
 	return (i);
 }
+int				ft_handle_width_hexa(int size, t_flags *flags)
+{
+	if ((flags->num_before == 0) && (flags->num_after != 0))
+		ft_write_width('0', flags->num_after, size);
+	if ((flags->num_before != 0) && (flags->num_after != 0))
+	{
+		if (flags->num_after < flags->num_before)
+			ft_write_width('0', flags->num_after, size);
+		if (flags->num_after > flags->num_before)
+			ft_write_width('0', flags->num_before, size);
+	}
+	return(0);
 
-int				ft_handle_prec_hexa(int size, t_flags *flags)
+}int				ft_handle_prec_hexa(int size, t_flags *flags)
 {
 	if ((flags->num_before != 0) && (flags->num_after == 0))
 	{
@@ -56,6 +68,8 @@ int				ft_handle_prec_hexa(int size, t_flags *flags)
 	return (0);
 }
 
+
+
 int				ft_display_hexa(unsigned int n, t_flags flags)
 {
 	char		*res;
@@ -70,14 +84,14 @@ int				ft_display_hexa(unsigned int n, t_flags flags)
 	if (flags.minus == 0)
 	{
 		ft_handle_prec_hexa(size, &flags);
-		ft_handle_width(size, &flags);
+		ft_handle_width_hexa(size, &flags);
 		ft_putstr(res);
 		free(res);
 		return (0);
 	}
 	if ((flags.minus == 1) && (flags.zero == 0))
 	{
-		ft_handle_width(size, &flags);
+		ft_handle_width_hexa(size, &flags);
 		if (flags.num_after > flags.num_before)
 			ft_handle_prec_hexa(size, &flags);
 		ft_putstr(res);
