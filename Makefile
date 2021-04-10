@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 22:54:52 by ddecourt          #+#    #+#              #
-#    Updated: 2021/04/06 14:32:44 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/04/10 12:53:28 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ SRCS	= ft_display_string.c \
 	  ft_display_char.c \
 	  ft_display_int.c \
 	  ft_display_unsigned.c \
-	  ft_display_octal.c \
 	  ft_display_hexa.c \
 	  ft_display_big_hexa.c \
 	  ft_display_percent.c \
@@ -30,6 +29,7 @@ SRCS	= ft_display_string.c \
 	  libft/ft_putchar.c \
 	  libft/ft_convert.c \
 	  libft/ft_putnbr.c \
+	  libft/ft_putnbr_u.c \
 	  libft/ft_strdup.c \
 	  
 
