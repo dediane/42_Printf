@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 00:01:35 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/09 22:46:50 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/11 12:40:03 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int				ft_handle_prec_hexa(int size, t_flags *flags)
 	return (0);
 }
 
-int				ft_display_hexa(unsigned int n, t_flags flags)
+int				ft_display_hexa(unsigned long int n, t_flags flags)
 {
 	char		*res;
 	int			size;

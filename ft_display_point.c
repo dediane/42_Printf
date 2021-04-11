@@ -6,7 +6,7 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:52:17 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/10 01:08:06 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/11 00:47:53 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_display_point(void *n, t_flags flags)
 	int size;
 	int i;
 
-	res = NULL;
+	res = NULL;;
 	size = 0;
 
 	if (n == NULL)
@@ -53,7 +53,7 @@ int	ft_display_point(void *n, t_flags flags)
 	}
 	if (n != NULL)
 	{
-		res = ft_convert((unsigned long)n, "0123456789abcdef");
+		res = ft_convert((unsigned long int)n, "0123456789abcdef");
 		size = ft_strlen(res);
 	}
 	if ((flags.num_before != 0))
@@ -66,7 +66,11 @@ int	ft_display_point(void *n, t_flags flags)
 				ft_putchar(' ');
 				i++;
 			}
-			ft_putstr(res);
+			if (n != NULL)
+			{
+				ft_putstr("0x");
+				ft_putstr(res);
+			}
 		}
 		if (flags.num_after != 0)
 		{
@@ -83,8 +87,11 @@ int	ft_display_point(void *n, t_flags flags)
 					ft_putchar('0');
 					i++;
 				}
-				ft_putstr("0x");
-				ft_putstr(res);
+				if (n != NULL)
+				{
+					ft_putstr("0x");
+					ft_putstr(res);
+				}
 			}
 			if (flags.num_after > flags.num_before)
 			{
@@ -95,13 +102,10 @@ int	ft_display_point(void *n, t_flags flags)
 					ft_putchar('0');
 					i++;
 				}
-				ft_putstr(res);
+				if (n != NULL)
+					ft_putstr(res);
 			}
 		}
-	}
-	else
-	{
-		ft_putstr(res);
 	}
 	free(res);
 	return (size);
