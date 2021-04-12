@@ -6,13 +6,13 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:21:23 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/09 23:44:12 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/12 14:02:31 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_check_exceptions_zero(int nb, t_flags flags)
+unsigned int	ft_check_exceptions_zero(unsigned int nb, t_flags flags)
 {
 	if ((nb == 0) && (flags.dot == 1) )
 	{
@@ -59,7 +59,7 @@ int				ft_get_size(long int n)
 	return (size);
 }
 
- int				ft_get_size_u(long unsigned int n)
+ int				ft_get_size_u(unsigned int n)
 {
 	int	size;
 

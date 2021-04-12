@@ -6,13 +6,13 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 23:52:33 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/10 12:54:39 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/12 14:03:23 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-void	ft_putnbr_u(long unsigned int n)
+void	ft_putnbr_u(unsigned int n)
 {
 	if (n > 9)
 	{
