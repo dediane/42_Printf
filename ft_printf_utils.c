@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:21:23 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/12 14:02:31 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/12 23:09:13 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,18 @@ unsigned int	ft_check_exceptions_zero(unsigned int nb, t_flags flags)
 			}
 			return (1);
 		}
-		if ((flags.num_before == 0) && (flags.num_after != 0))
+		if ((flags.num_before == 0) && (flags.num_after != 0) && (flags.star == 0))
 		{
 			while(flags.num_after > 0)
 			{
 				ft_putchar('0');
 				flags.num_after--;
 			}
+			return (1);
+		}
+		if ((flags.num_before == 0) && (flags.star == 1))
+		{
+			ft_putchar('0');
 			return (1);
 		}
 	}

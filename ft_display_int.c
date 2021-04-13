@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/11 20:24:30 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/13 14:43:42 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ void			ft_handle_prec(int size, int nb, t_flags *flags)
 	}
 	if ((flags->num_before != 0) && (flags->num_after != 0))
 	{
-		if ((flags->num_after < flags->num_before) && (flags->num_after <= size))
+		if ((flags->num_after <= flags->num_before) && (flags->num_after < size))
 			ft_write_width(' ', flags->num_before, size);
-		if ((flags->num_after < flags->num_before) && (flags->num_after > size))
+		if ((flags->num_after < flags->num_before) && (flags->num_after >= size))
 		{
 			if (nb < 0)
 				ft_write_width(' ', flags->num_before, flags->num_after + 1);
 			else
 				ft_write_width(' ', flags->num_before, flags->num_after);
 		}
-		if (flags->num_after > flags->num_before)
+		if (((flags->num_after > flags->num_before) && (flags->star == 0)) || ((flags->num_after == flags->num_before)))	
 		{
 			if (nb < 0)
 				size--;
@@ -43,7 +43,7 @@ void			ft_handle_prec(int size, int nb, t_flags *flags)
 
 int				ft_handle_width(int size, int nb, t_flags *flags)
 {
-	if ((flags->num_before == 0) && (flags->num_after != 0))
+	if ((flags->num_before == 0) && (flags->num_after != 0) && (flags->star == 0))
 		ft_write_width('0', flags->num_after, size);
 	if ((flags->num_before != 0) && (flags->num_after != 0))
 	{
@@ -51,7 +51,8 @@ int				ft_handle_width(int size, int nb, t_flags *flags)
 		{
 			if (nb < 0)
 				size--;
-			ft_write_width('0', flags->num_after, size);
+			if (flags->star == 0)
+				ft_write_width('0', flags->num_after, size);
 		}
 	}
 	return (0);
@@ -59,13 +60,12 @@ int				ft_handle_width(int size, int nb, t_flags *flags)
 
 int				ft_display_prec_width(int nb, int size, t_flags flags)
 {
-	if ((flags.minus == 1) || ((flags.num_after > flags.num_before)
-				&& (nb < 0)))
+	if ((flags.minus == 1) || ((flags.num_after >= flags.num_before)))
 	{
 		if (nb < 0)
 			ft_putchar('-');
 		ft_handle_width(size, nb, &flags);
-		if (flags.num_after > flags.num_before)
+		if (flags.num_after >= flags.num_before)
 			ft_handle_prec(size, nb, &flags);
 		ft_putnbr(nb);
 		if (flags.num_after < flags.num_before)
@@ -75,11 +75,11 @@ int				ft_display_prec_width(int nb, int size, t_flags flags)
 	if (flags.minus == 0)
 	{
 		ft_handle_prec(size, nb, &flags);
-		if (flags.num_after > flags.num_before)
+		if (flags.num_after >= flags.num_before)
 			ft_handle_width(size, nb, &flags);
 		if (nb < 0)
 			ft_putchar('-');
-		if (flags.num_after < flags.num_before)
+		if (flags.num_after <= flags.num_before)
 			ft_handle_width(size, nb, &flags);
 		ft_putnbr(nb);
 	}

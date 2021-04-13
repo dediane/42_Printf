@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 00:01:35 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/11 12:40:03 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/12 23:06:54 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,20 @@ int				ft_handle_prec_hexa(int size, t_flags *flags)
 	}
 	return (0);
 }
+/*int				ft_handle_prec_hexa(int size, t_flags flags)
+{
+	if ((flags.num_before != 0) && (flags.num_after == 0))
+	{
+		if ((flags.minus == 0) && (flags.zero == 0 ))
+			ft_write_width(' ', flags.num_before, size);
+		if ((flags.minus == 0) && (flags.zero == 1))
+			ft_write_width('0', flags.num_before, size);
+	}
+	if ((flags.num_before != 0) && (flags.num_after == 0))
+	{
+
+	}
+}*/
 
 int				ft_display_hexa(unsigned long int n, t_flags flags)
 {
@@ -79,6 +93,17 @@ int				ft_display_hexa(unsigned long int n, t_flags flags)
 		return (0);
 	res = ft_convert(n, "0123456789abcdef");
 	size = (int)(ft_strlen(res));
+	/*if ((flags.num_before == 0) && (flags.num_after == 0))
+		ft_putstr(res);
+	if ((flags.num_before != 0) && (flags.num_after == 0))
+		ft_handle_prec_hexa(nb, size, flags);
+	if ((flags.num_before == 0) && (flags.num_after != 0))
+	{
+		ft_handle_width_hexa(size, &flags);
+		ft_putstr(res);
+	}
+	if ((flags.num_before != 0) && (flags.num_after != 0))
+		ft_handle_prec_width_hexa(nb, size, flags);*/	
 	if (flags.minus == 0)
 	{
 		ft_handle_prec_hexa(size, &flags);

@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:54:56 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/12 13:27:10 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:27:03 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int				ft_handle_prec_s(int size, t_flags *flags)
 		else if ((flags->zero == 1) && (flags->dot == 0) && (flags->minus == 1))
 			ft_write_width(' ', flags->num_before, size);
 	}
-	if ((flags->num_before != 0) && (flags->num_after != 0) && (flags->star == 0))
+	if ((flags->num_before != 0) && (flags->num_after != 0))
 	{
-		if (flags->num_after < size)
+		if (flags->num_after < size && flags->star == 0)
 			ft_write_width(' ', flags->num_before, flags->num_after);
 		else
 			ft_write_width(' ', flags->num_before, size);
@@ -44,7 +44,12 @@ int				ft_handle_minus_zero_s(int size, const char *s, t_flags flags)
 			ft_putstr(s);
 	}
 	if ((flags.num_after < size) && (flags.num_after != 0))
-		ft_putnchr(s, flags.num_after);
+	{
+		if (flags.star == 0)
+			ft_putnchr(s, flags.num_after);
+		if (flags.star == 1)
+			ft_putstr(s);
+	}
 	return (0);
 }
 
@@ -61,7 +66,10 @@ int				ft_handle_minus_one_s(int size, const char *s, t_flags flags)
 		if (flags.star == 0)
 			ft_putnchr(s, flags.num_after);
 		if (flags.star == 1)
+		{
 			ft_putstr(s);
+			ft_handle_prec_s(size, &flags);
+		}
 	ft_handle_prec_s(size, &flags);
 	return (0);
 }

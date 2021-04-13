@@ -6,7 +6,7 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:52:17 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/11 19:38:11 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:15:31 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int	ft_handle_n_null(void *n, t_flags flags)
 		{
 			ft_handle_prec_hexa(3, &flags);
 			ft_putstr("0x0");
+			return (1);
 		}
-		return (1);
 	}
 	return (0);
 }
