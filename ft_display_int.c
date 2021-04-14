@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/13 18:31:50 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/14 20:20:23 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void			ft_handle_prec(int size, int nb, t_flags *flags)
 				ft_write_width(' ', flags->num_before, flags->num_after + 1);
 			else
 				ft_write_width(' ', flags->num_before, flags->num_after);
-		}
-		if (((flags->num_after > flags->num_before) && (flags->star == 0)) || ((flags->num_after == flags->num_before) && (flags->star == 0)))	
+	}
+		if (((flags->num_after > flags->num_before) && (flags->star == 0)) 
+		|| ((flags->num_after == flags->num_before) && (flags->star == 0)))	
 		{
 			if (nb < 0)
 				size--;

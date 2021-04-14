@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:07 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/12 23:01:24 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/14 16:14:05 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,17 @@ void				ft_handle_prec_u(int size, t_flags *flags)
 	if ((flags->num_before != 0) && (flags->num_after != 0))
 	{
 		if ((flags->num_after < flags->num_before) &&
+		(flags->num_after <= size) && (flags->zero == 1) && (flags->star == 1))
+		{
+			ft_write_width('0', flags->num_before, size);
+			return;
+		}
+		if ((flags->num_after < flags->num_before) &&
 		(flags->num_after <= size))
 			ft_write_width(' ', flags->num_before, size);
 		if ((flags->num_after < flags->num_before) && (flags->num_after > size))
 			ft_write_width(' ', flags->num_before, flags->num_after);
-		if (flags->num_after > flags->num_before)
+		if (flags->num_after >= flags->num_before)
 			ft_write_width('0', flags->num_after, size);
 	}
 }
@@ -40,9 +46,14 @@ int					ft_handle_width_u(int size, t_flags *flags)
 	if ((flags->num_before != 0) && (flags->num_after != 0))
 	{
 		if (flags->num_after < flags->num_before)
+			if (flags->star == 0)
+				ft_write_width('0', flags->num_after, size);
+			if (flags->star == 1)
+				ft_write_width(' ', flags->num_after, size);
+		if ((flags->num_after > flags->num_before) && (flags->zero == 0))
+			ft_write_width('0', flags->num_before - size, size);
+		if ((flags->num_after == flags->num_before) && (flags->zero == 0))
 			ft_write_width('0', flags->num_after, size);
-		if (flags->num_after > flags->num_before)
-			ft_write_width('0', flags->num_before, size);
 	}
 	return (0);
 }
@@ -52,7 +63,7 @@ unsigned int size, t_flags flags)
 {
 	if (flags.minus == 1)
 	{
-		ft_handle_width(size, nb, &flags);
+		ft_handle_width_u(size, &flags);
 		if (flags.num_after > flags.num_before)
 			ft_handle_prec_u(size, &flags);
 		ft_putnbr_u(nb);

@@ -6,13 +6,13 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 00:01:35 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/12 23:06:54 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/14 15:43:44 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int				ft_handle_flags_hexa(int size, t_flags *flags)
+/*int				ft_handle_flags_hexa(int size, t_flags *flags)
 {
 	int			i;
 
@@ -69,7 +69,7 @@ int				ft_handle_prec_hexa(int size, t_flags *flags)
 	}
 	return (0);
 }
-/*int				ft_handle_prec_hexa(int size, t_flags flags)
+int				ft_handle_prec_hexa(int size, t_flags flags)
 {
 	if ((flags.num_before != 0) && (flags.num_after == 0))
 	{
@@ -93,31 +93,20 @@ int				ft_display_hexa(unsigned long int n, t_flags flags)
 		return (0);
 	res = ft_convert(n, "0123456789abcdef");
 	size = (int)(ft_strlen(res));
-	/*if ((flags.num_before == 0) && (flags.num_after == 0))
-		ft_putstr(res);
-	if ((flags.num_before != 0) && (flags.num_after == 0))
-		ft_handle_prec_hexa(nb, size, flags);
-	if ((flags.num_before == 0) && (flags.num_after != 0))
-	{
-		ft_handle_width_hexa(size, &flags);
-		ft_putstr(res);
-	}
-	if ((flags.num_before != 0) && (flags.num_after != 0))
-		ft_handle_prec_width_hexa(nb, size, flags);*/	
 	if (flags.minus == 0)
 	{
-		ft_handle_prec_hexa(size, &flags);
-		ft_handle_width_hexa(size, &flags);
+		ft_handle_prec_u(size, &flags);
+		ft_handle_width_u(size, &flags);
 		ft_putstr(res);
 	}
 	if (flags.minus == 1)
 	{
-		ft_handle_width_hexa(size, &flags);
+		ft_handle_width_u(size, &flags);
 		if (flags.num_after > flags.num_before)
-			ft_handle_prec_hexa(size, &flags);
+			ft_handle_prec_u(size, &flags);
 		ft_putstr(res);
 		if (flags.num_after < flags.num_before)
-			ft_handle_prec_hexa(size, &flags);
+			ft_handle_prec_u(size, &flags);
 	}
 	free(res);
 	return (0);
