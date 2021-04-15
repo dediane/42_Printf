@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/14 20:20:23 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/15 16:31:10 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,30 @@ void			ft_handle_prec(int size, int nb, t_flags *flags)
 	if ((flags->num_before != 0) && (flags->num_after != 0))
 	{
 		if ((flags->num_after <= flags->num_before) && (flags->num_after < size))
-			ft_write_width(' ', flags->num_before, size);
+		{
+			if ((flags->zero == 1) && (flags->star == 1))
+				ft_write_width('0', flags->num_before, size);
+			else
+				ft_write_width(' ', flags->num_before, size);
+		}
 		if ((flags->num_after < flags->num_before) && (flags->num_after >= size))
 		{
-			if (nb < 0)
-				ft_write_width(' ', flags->num_before, flags->num_after + 1);
+			if ((flags->zero == 1) && (flags->star == 1))
+			{
+				if (nb < 0)
+					ft_write_width('0', flags->num_before, flags->num_after + 1);
+				else
+					ft_write_width('0', flags->num_before, flags->num_after);
+			}
 			else
-				ft_write_width(' ', flags->num_before, flags->num_after);
-	}
+			{
+				if (nb < 0)
+					ft_write_width(' ', flags->num_before, flags->num_after + 1);
+				else
+					ft_write_width(' ', flags->num_before, flags->num_after);
+			}
+
+		}
 		if (((flags->num_after > flags->num_before) && (flags->star == 0)) 
 		|| ((flags->num_after == flags->num_before) && (flags->star == 0)))	
 		{
@@ -52,16 +68,19 @@ int				ft_handle_width(int size, int nb, t_flags *flags)
 		{
 			if (nb < 0)
 				size--;
-			if (flags->star == 0)
+			if ((flags->star == 0) || ((flags->star == 1) && (flags->zero == 1)))
 				ft_write_width('0', flags->num_after, size);
-			if (flags->star == 1)
+			else if (flags->star == 1)
 				ft_write_width(' ', flags->num_after, size);
 		}
 		if ((flags->num_after == flags->num_before) && (flags->star == 1))
 		{
 			if (nb < 0)
 				size++;
-			ft_write_width(' ', flags->num_after, size);
+			if (flags->zero == 1) 
+				ft_write_width('0', flags->num_after, size);
+			else 
+				ft_write_width(' ', flags->num_after, size);
 		}
 	}
 	return (0);
@@ -108,11 +127,11 @@ void			ft_display_prec(int nb, int size, t_flags flags)
 	}
 	if ((flags.num_before != 0) && (flags.num_after == 0))
 	{
-		if ((nb < 0) && (flags.zero == 1))
+		if ((nb < 0) && (flags.minus == 1))
 			ft_putchar('-');
 		if (flags.minus == 0)
 			ft_handle_prec(size, nb, &flags);
-		if ((nb < 0) && (flags.zero == 0))
+		if ((nb < 0) && (flags.minus == 0))
 			ft_putchar('-');
 		ft_putnbr(nb);
 		if (flags.minus == 1)
