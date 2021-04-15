@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/14 15:43:25 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/15 17:09:26 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ int		ft_get_size_u( unsigned int n);
 int		ft_write_width(char c, int max, int size);
 void				ft_handle_prec_u(int size, t_flags *flags);
 int					ft_handle_width_u(int size, t_flags *flags);
-
-
+void				ft_display_prec_x(char *res, int size, t_flags flags);
+int					ft_display_prec_width_x(char *res, int size, t_flags flags);
 #endif
