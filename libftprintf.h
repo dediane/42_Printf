@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/15 17:09:26 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/16 15:28:56 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ size_t		ft_strlen(const char *s);
 char 		*ft_strdup(const char *s1);
 char		*ft_strjoin(char const *s1, char const *s2);
 int		get_num(int i);
-int		ft_handle_width(int size, int nb, t_flags *flags);
+int		ft_handle_width(int size, int nb, t_flags flags);
 unsigned int		ft_check_exceptions_zero(unsigned int nb, t_flags flags);
 int		ft_get_size(long int n);
 int		ft_get_size_u( unsigned int n);
