@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:07 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/15 17:19:32 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/16 14:55:18 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ unsigned int size, t_flags flags)
 {
 	if (flags.minus == 1)
 	{
-		ft_handle_width_u(size, &flags);
+		if (!(flags.num_after > flags.num_before))
+			ft_handle_width_u(size, &flags);
 		if (flags.num_after > flags.num_before)
 			ft_handle_prec_u(size, &flags);
 		ft_putnbr_u(nb);
@@ -74,8 +75,6 @@ unsigned int size, t_flags flags)
 	if (flags.minus == 0)
 	{
 		ft_handle_prec_u(size, &flags);
-		if (flags.num_after > flags.num_before)
-			ft_handle_width_u(size, &flags);
 		if (flags.num_after < flags.num_before)
 			ft_handle_width_u(size, &flags);
 		ft_putnbr_u(nb);
