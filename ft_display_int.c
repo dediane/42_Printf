@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/15 17:38:04 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/16 14:31:20 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,12 @@ int				ft_display_prec_width(int nb, int size, t_flags flags)
 	}
 	if (flags.minus == 0)
 	{
+		if ((nb < 0) && ((flags.zero == 1) && (size < flags.num_before) && (flags.star == 1)))
+			ft_putchar('-');
 		ft_handle_prec(size, nb, &flags);
 		if (flags.num_after >= flags.num_before)
 			ft_handle_width(size, nb, &flags);
-		if (nb < 0)
+		if ((nb < 0) && ((size >= flags.num_before) || (flags.zero == 0) || flags.star == 0))
 			ft_putchar('-');
 		if (flags.num_after < flags.num_before)
 			ft_handle_width(size, nb, &flags);
@@ -127,11 +129,11 @@ void			ft_display_prec(int nb, int size, t_flags flags)
 	}
 	if ((flags.num_before != 0) && (flags.num_after == 0))
 	{
-		if ((nb < 0) && ((flags.minus == 1) || ((flags.zero == 1) && (size < flags.num_before))))
+		if ((nb < 0) && ((flags.minus == 1) || ((flags.zero == 1) && (size < flags.num_before) && (flags.dot == 0))))
 			ft_putchar('-');
 		if (flags.minus == 0)
 			ft_handle_prec(size, nb, &flags);
-		if ((nb < 0) && (flags.minus == 0) && ((size >= flags.num_before) || (flags.zero == 0)))
+		if ((nb < 0) && (flags.minus == 0) && ((size >= flags.num_before) || (flags.zero == 0) || (flags.dot == 1)))
 			ft_putchar('-');
 		ft_putnbr(nb);
 		if (flags.minus == 1)
