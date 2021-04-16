@@ -6,7 +6,7 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:52:17 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/14 14:53:20 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/16 15:05:52 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ int	ft_handle_n_null(void *n, t_flags flags)
 		{
 			if (flags.dot == 0)
 			{
+				if (flags.minus == 1)
+					ft_putstr("0x0");
 				ft_handle_prec_u(3, &flags);
-				ft_putstr("0x0");
+				if (flags.minus == 0)
+					ft_putstr("0x0");
 			}
 			if (flags.dot == 1)
 			{
@@ -52,8 +55,11 @@ int	ft_handle_n_null(void *n, t_flags flags)
 		}
 		if (flags.num_before != 0)
 		{
+			if (flags.minus == 1)
+				ft_putstr("0x0");
 			ft_handle_prec_u(3, &flags);
-			ft_putstr("0x0");
+			if (flags.minus == 0)
+				ft_putstr("0x0");
 			return (1);
 		}
 	}
