@@ -6,7 +6,7 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:27:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/16 15:15:01 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/17 01:18:56 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@ void		ft_handle_star(t_flags *flags)
 void		ft_checkflag(char current, t_flags *flags, va_list args)
 {
 	if (current == '-')
+	{
 		flags->minus = 1;
+		if (flags->zero == 1)
+			flags->zero = 0;
+	}
 	if (current == '*')
 	{
 		if (flags->dot == 1)
