@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:07 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/16 14:55:18 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/16 22:24:20 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void				ft_handle_prec_u(int size, t_flags *flags)
 		(flags->num_after <= size) && (flags->zero == 1) && (flags->star == 1))
 		{
 			ft_write_width('0', flags->num_before, size);
-			return;
+			return ;
 		}
 		if ((flags->num_after < flags->num_before) &&
 		(flags->num_after <= size))
@@ -46,10 +46,12 @@ int					ft_handle_width_u(int size, t_flags *flags)
 	if ((flags->num_before != 0) && (flags->num_after != 0))
 	{
 		if (flags->num_after < flags->num_before)
+		{
 			if (flags->star == 0)
 				ft_write_width('0', flags->num_after, size);
 			if (flags->star == 1)
 				ft_write_width(' ', flags->num_after, size);
+		}
 		if ((flags->num_after > flags->num_before) && (flags->zero == 0))
 			ft_write_width('0', flags->num_before - size, size);
 		if ((flags->num_after == flags->num_before) && (flags->zero == 0))
@@ -100,7 +102,7 @@ unsigned int size, t_flags flags)
 int					ft_display_unsigned(unsigned int n, t_flags flags)
 {
 	unsigned int	nb;
-	int					size;
+	int				size;
 
 	nb = (unsigned int)n;
 	size = ft_get_size_u(nb);
