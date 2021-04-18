@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:21:23 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/14 15:06:12 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:44:08 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				ft_get_size(long int n)
 		n *= -1;
 		size++;
 	}
-	while (n > 10)
+	while (n >= 10)
 	{
 		n = n / 10;
 		size++;
@@ -69,7 +69,7 @@ int				ft_get_size(long int n)
 	int	size;
 
 	size = 0;
-	while (n > 10)
+	while (n >= 10)
 	{
 		n = n / 10;
 		size++;

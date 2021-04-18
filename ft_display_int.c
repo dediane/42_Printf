@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 23:59:48 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/16 15:33:58 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/18 20:29:05 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,17 @@ int				ft_handle_width(int size, int nb, t_flags flags)
 		}
 		if ((flags.num_after == flags.num_before) && (flags.star == 1))
 		{
-			if (nb < 0)
+			if ((nb < 0) && (flags.star == 0))
 				size++;
 			if (flags.zero == 1)
 				ft_write_width('0', flags.num_after, size);
 			else
 				ft_write_width(' ', flags.num_after, size);
+		}
+		if ((flags.num_after > flags.num_before) && (flags.star == 1))
+		{
+			size++;
+			ft_write_width(' ', flags.num_after, size);	
 		}
 	}
 	return (0);
@@ -87,6 +92,14 @@ int				ft_handle_width(int size, int nb, t_flags flags)
 
 int				ft_display_prec_width(int nb, int size, t_flags flags)
 {
+	if ((nb < 0) && (flags.star == 1) && (flags.num_after > size) && (flags.minus == 0))
+	{
+		ft_handle_prec(size, nb, flags);
+		ft_handle_width(size, nb, flags);
+		ft_putchar('-');
+		ft_putnbr(nb);
+		return (0);
+	}
 	if ((flags.minus == 1) || ((flags.num_after >= flags.num_before)))
 	{
 		if (nb < 0)
