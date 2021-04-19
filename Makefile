@@ -6,13 +6,14 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 22:54:52 by ddecourt          #+#    #+#              #
-#    Updated: 2021/04/11 00:28:23 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/04/19 18:15:39 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= ft_display_string.c \
 	  ft_display_char.c \
 	  ft_display_int.c \
+	  ft_display_int2.c \
 	  ft_display_unsigned.c \
 	  ft_display_hexa.c \
 	  ft_display_big_hexa.c \

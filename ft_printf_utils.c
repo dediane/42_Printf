@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 14:21:23 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/18 16:44:08 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/19 17:45:17 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,19 @@
 
 unsigned int	ft_check_exceptions_zero(unsigned int nb, t_flags flags)
 {
-	if ((nb == 0) && (flags.dot == 1) )
+	if ((nb == 0) && (flags.dot == 1))
 	{
 		if ((flags.num_before == 0) && (flags.num_after == 0))
 			return (1);
 		if ((flags.num_before != 0) && (flags.num_after == 0))
 		{
-			while (flags.num_before > 0)
-			{
-				ft_putchar(' ');
-				flags.num_before--;
-			}
+			ft_write_width(' ', flags.num_before, 0);
 			return (1);
 		}
-		if ((flags.num_before == 0) && (flags.num_after != 0) && (flags.star == 0))
+		if ((flags.num_before == 0) && (flags.num_after != 0)
+		&& (flags.star == 0))
 		{
-			while(flags.num_after > 0)
-			{
-				ft_putchar('0');
-				flags.num_after--;
-			}
+			ft_write_width('0', flags.num_after, 0);
 			return (1);
 		}
 		if ((flags.num_before == 0) && (flags.star == 1))
@@ -42,7 +35,7 @@ unsigned int	ft_check_exceptions_zero(unsigned int nb, t_flags flags)
 			return (1);
 		}
 	}
-	return(0);
+	return (0);
 }
 
 int				ft_get_size(long int n)
@@ -64,9 +57,9 @@ int				ft_get_size(long int n)
 	return (size);
 }
 
- int				ft_get_size_u(unsigned int n)
+int				ft_get_size_u(unsigned int n)
 {
-	int	size;
+	int			size;
 
 	size = 0;
 	while (n >= 10)
@@ -80,7 +73,7 @@ int				ft_get_size(long int n)
 
 int				ft_write_width(char c, int max, int size)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	while (i < (max - size))

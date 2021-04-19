@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:30:49 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/02 14:10:21 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/19 18:07:41 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int		get_num(int i)
 	static int	num = 0;
 	int			swp;
 
-	swp  = num;
+	swp = num;
 	num += i;
 	if (i == 0)
 	{
 		num = 0;
-		return swp;
+		return (swp);
 	}
-	return swp;
+	return (swp);
 }
 
 void	ft_putchar(char c)

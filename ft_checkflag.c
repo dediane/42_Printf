@@ -6,7 +6,7 @@
 /*   By: ddecourt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:27:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/18 17:09:10 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/19 15:32:11 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,17 @@ void		ft_handle_star(t_flags *flags)
 	}
 }
 
+void		ft_handle_minus(t_flags *flags)
+{
+	flags->minus = 1;
+	if (flags->zero == 1)
+		flags->zero = 0;
+}
+
 void		ft_checkflag(char current, t_flags *flags, va_list args)
 {
 	if (current == '-')
-	{
-		flags->minus = 1;
-		if (flags->zero == 1)
-			flags->zero = 0;
-	}
+		ft_handle_minus(flags);
 	if (current == '*')
 	{
 		if (flags->dot == 1)
