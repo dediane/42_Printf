@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 21:30:11 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/19 18:32:04 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/21 14:00:22 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int			ft_display_point(void *n, t_flags flags);
 int			ft_printf(const char *format, ...);
 int			ft_write_width(char c, int max, int size);
 int			get_num(int i);
-void			ft_handle_width(int size, int nb, t_flags flags);
-void			ft_handle_width2(int size, int nb, t_flags flags);
 int			ft_get_size(long int n);
 int			ft_get_size_u(unsigned int n);
 int			ft_handle_width_u(int size, t_flags *flags);
@@ -49,6 +47,8 @@ char		*ft_convert(unsigned long int n, char *base);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strdup(const char *s1);
 char		*ft_strjoin(char const *s1, char const *s2);
+void		ft_handle_width(int size, int nb, t_flags flags);
+void		ft_handle_width2(int size, int nb, t_flags flags);
 void		ft_checkflag(char current, t_flags *flags, va_list args);
 void		ft_putchar(char c);
 void		ft_putnchr(const char *s, int n);
