@@ -6,13 +6,13 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 21:46:37 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/04/21 12:27:15 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/04/24 21:38:30 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-static int			get_size(long unsigned int n, int len)
+static int				get_size(long unsigned int n, int len)
 {
 	int					size;
 
@@ -27,12 +27,12 @@ static int			get_size(long unsigned int n, int len)
 	return (size);
 }
 
-char				*ft_convert(unsigned long int n, char *base)
+char					*ft_convert(unsigned long int n, char *base)
 {
-	unsigned long int			nb;
+	unsigned long int	nb;
 	int					size;
 	int					len;
-	char			*num;
+	char				*num;
 
 	nb = n;
 	len = ft_strlen(base);
